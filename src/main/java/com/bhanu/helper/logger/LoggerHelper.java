@@ -18,7 +18,6 @@ public class LoggerHelper {
 		if (root) {
 			return Logger.getLogger(clas);
 		}
-		
 		//PropertyConfigurator.configure("/Users/bsingh5/git/excel-tutorial-with-dataDrivenFramework/log4j.properties");
 		PropertyConfigurator.configure(ResourceHelper.getResourcePath("/src/main/resources/projectConfig/log4j.properties"));
 		root = true;
