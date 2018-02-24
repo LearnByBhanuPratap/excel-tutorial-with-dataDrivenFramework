@@ -38,7 +38,7 @@ public class ReadDataFromExcelSheet {
 			Iterator<Row> rowIterator = sheet.iterator();
 			int i = 0;
 			while (rowIterator.hasNext()) {
-				i = i++;
+				System.out.println(i);
 				Row row = rowIterator.next();
 					// For each row, iterate through all the columns
 					Iterator<Cell> cellIterator = row.cellIterator();
@@ -46,29 +46,32 @@ public class ReadDataFromExcelSheet {
 					while (cellIterator.hasNext()) {
 
 						Cell cell = cellIterator.next();
-						if(cell.getStringCellValue().contains("email")){
+						if(cell.getStringCellValue().contains("User Name")){
 							 break;
 						}
+						
 						// Check the cell type and format accordingly
 						switch (cell.getCellType()) {
 						case Cell.CELL_TYPE_NUMERIC:
-							dataSets[i][j++] = cell.getStringCellValue();
+							dataSets[i-1][j++] = cell.getStringCellValue();
 							System.out.println(cell.getNumericCellValue());
 							break;
 						case Cell.CELL_TYPE_STRING:
-							dataSets[i][j++] = cell.getStringCellValue();
+							dataSets[i-1][j++] = cell.getStringCellValue();
 							System.out.println(cell.getStringCellValue());
 							break;
 						case Cell.CELL_TYPE_BOOLEAN:
-							dataSets[i][j++] = cell.getStringCellValue();
+							dataSets[i-1][j++] = cell.getStringCellValue();
 							System.out.println(cell.getStringCellValue());
 							break;
 						case Cell.CELL_TYPE_FORMULA:
-							dataSets[i][j++] = cell.getStringCellValue();
+							dataSets[i-1][j++] = cell.getStringCellValue();
 							System.out.println(cell.getStringCellValue());
 							break;
 						}
+						
 					}
+					i++;
 					System.out.println("");
 			}
 			file.close();

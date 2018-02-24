@@ -3,6 +3,7 @@ package com.bhanu.pageObjects.login;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -20,6 +21,10 @@ public class Login {
 
 	@FindBy(xpath = "//input[@name='user_password']")
 	WebElement password;
+	
+	@FindBy(id = "submitButton")
+	WebElement loginButton;
+
 
 	public Login(WebDriver driver) {
 		super();
@@ -37,10 +42,18 @@ public class Login {
 		log.info("entering password: " + password);
 		this.password.sendKeys(password);
 	}
+	
+	public void clickLogin() {
+		log.info("clicking login button");
+		loginButton.click();
+	}
 
 	public Home loginToApplication(String userName, String password) {
 		setUserName(userName);
 		setPassword(password);
+		clickLogin();
 		return new Home(driver);
 	}
+	
+	
 }
