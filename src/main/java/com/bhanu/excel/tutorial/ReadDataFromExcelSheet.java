@@ -24,7 +24,7 @@ public class ReadDataFromExcelSheet {
 
 			// Get first/desired sheet from the workbook
 			XSSFSheet sheet = workbook.getSheet(sheetName);
-			// count number of active tows
+			// count number of active rows
 			int totalRow = sheet.getLastRowNum();
 			// count number of active columns in row
 			int totalColumn = sheet.getRow(0).getLastCellNum();
@@ -34,7 +34,7 @@ public class ReadDataFromExcelSheet {
 			Iterator<Row> rowIterator = sheet.iterator();
 			int i = 0;
 			while (rowIterator.hasNext()) {
-				 i = i++;
+				i = i++;
 				Row row = rowIterator.next();
 					// For each row, iterate through all the columns
 					Iterator<Cell> cellIterator = row.cellIterator();
@@ -96,7 +96,7 @@ public class ReadDataFromExcelSheet {
 				if (ce.contains(testCaseName)) {
 					r.createCell(2).setCellValue(testStatus);
 					file.close();
-					System.out.println("done");
+					System.out.println("resule updated");
 					FileOutputStream outFile = new FileOutputStream(new File(excellocation));
 					workbook.write(outFile);
 					outFile.close();
@@ -113,9 +113,10 @@ public class ReadDataFromExcelSheet {
 		String excellocation = "/Users/bsingh5/git/excel-tutorial-with-dataDrivenFramework/demo.xlsx";
 		String sheetName = "TestReport";
 		ReadDataFromExcelSheet excel = new ReadDataFromExcelSheet();
-		//excel.getExcelData(excellocation, sheetName);
+//		String[][] data = excel.getExcelData(excellocation, sheetName);
+//		System.out.println(data);
 		excel.updateResult(excellocation, sheetName, "Login Test", "FAIL");
 		excel.updateResult(excellocation, sheetName, "Registartion Test", "PASS");
-		excel.updateResult(excellocation, sheetName, "Dashboard Test", "FAIL");
+		excel.updateResult(excellocation, sheetName, "Dashboard Test", "PASS");
 	}
 }
