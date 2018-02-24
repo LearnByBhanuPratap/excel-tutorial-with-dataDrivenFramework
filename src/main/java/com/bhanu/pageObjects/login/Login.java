@@ -8,11 +8,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.bhanu.helper.logger.LoggerHelper;
+import com.bhanu.helper.waitHelper.WaitHelper;
 import com.bhanu.pageObjects.home.Home;
+import com.bhanu.testBase.DataSource;
 
 public class Login {
 
 	private WebDriver driver;
+	private WaitHelper waitHelper;
 
 	private static Logger log = LoggerHelper.getLogger(Login.class);
 
@@ -30,6 +33,8 @@ public class Login {
 		super();
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
+		waitHelper = new WaitHelper(driver);
+		waitHelper.waitForElement(userName, DataSource.getExplicitWait());
 	}
 
 

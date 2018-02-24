@@ -19,7 +19,7 @@ public class Home {
 	private WaitHelper waitHelper;
 	
 	@FindBy(xpath="//img[@title='vtiger-crm-logo.gif']")
-    WebElement vtigerHomePage;
+    WebElement vtigerHomePageLogo;
 	
 	
 	@FindBy(xpath="//img[@src='themes/softed/images/user.PNG']")
@@ -33,7 +33,7 @@ public class Home {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		waitHelper = new WaitHelper(driver);
-		waitHelper.waitForElement(vtigerHomePage, DataSource.getExplicitWait());
+		waitHelper.waitForElement(vtigerHomePageLogo, DataSource.getExplicitWait());
 	}
 	
 	public Login logout() {

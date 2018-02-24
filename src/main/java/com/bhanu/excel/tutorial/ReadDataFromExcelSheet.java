@@ -39,6 +39,7 @@ public class ReadDataFromExcelSheet {
 			int i = 0;
 			while (rowIterator.hasNext()) {
 				System.out.println(i);
+				i++;
 				Row row = rowIterator.next();
 					// For each row, iterate through all the columns
 					Iterator<Cell> cellIterator = row.cellIterator();
@@ -53,25 +54,25 @@ public class ReadDataFromExcelSheet {
 						// Check the cell type and format accordingly
 						switch (cell.getCellType()) {
 						case Cell.CELL_TYPE_NUMERIC:
-							dataSets[i-1][j++] = cell.getStringCellValue();
+							dataSets[i][j++] = cell.getStringCellValue();
 							System.out.println(cell.getNumericCellValue());
 							break;
 						case Cell.CELL_TYPE_STRING:
-							dataSets[i-1][j++] = cell.getStringCellValue();
+							dataSets[i][j++] = cell.getStringCellValue();
 							System.out.println(cell.getStringCellValue());
 							break;
 						case Cell.CELL_TYPE_BOOLEAN:
-							dataSets[i-1][j++] = cell.getStringCellValue();
+							dataSets[i][j++] = cell.getStringCellValue();
 							System.out.println(cell.getStringCellValue());
 							break;
 						case Cell.CELL_TYPE_FORMULA:
-							dataSets[i-1][j++] = cell.getStringCellValue();
+							dataSets[i][j++] = cell.getStringCellValue();
 							System.out.println(cell.getStringCellValue());
 							break;
 						}
 						
 					}
-					i++;
+				
 					System.out.println("");
 			}
 			file.close();
