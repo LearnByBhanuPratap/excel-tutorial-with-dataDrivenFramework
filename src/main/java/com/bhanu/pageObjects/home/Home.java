@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.bhanu.helper.logger.LoggerHelper;
 import com.bhanu.helper.waitHelper.WaitHelper;
+import com.bhanu.pageObjects.Leads.Leads;
 import com.bhanu.pageObjects.login.Login;
 import com.bhanu.testBase.DataSource;
 
@@ -27,6 +28,10 @@ public class Home {
 	
 	@FindBy(linkText="Sign Out")
 	WebElement signOut;
+	
+	@FindBy(linkText = "Leads")
+	WebElement leads;
+	
 	
 	public Home(WebDriver driver) {
 		super();
@@ -48,6 +53,16 @@ public class Home {
 		signOut.click();
 		log.info("clicked on signout...");
 		return new Login(driver);
+	}
+	
+	/**
+	 * 
+	 * @return {@link Leads}
+	 */
+	public Leads navigateToLeads(){
+		log.info("navigating to leads");
+		leads.click();
+		return new Leads(driver);
 	}
 
 }
