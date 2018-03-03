@@ -201,4 +201,49 @@ public class Leads {
 		log.info("clicking on save button");
 		save.click();
 	}
+
+	/**
+	 * This method will create Leads
+	 * @param type
+	 * @param firstName
+	 * @param lastName
+	 * @param company
+	 * @param designation
+	 * @param leadSource
+	 * @param industry
+	 * @param annualrevenue
+	 * @param noofemployees
+	 * @param street
+	 * @param postalCode
+	 * @param country
+	 * @param description
+	 * @param phone
+	 * @param mobile
+	 * @param email
+	 * @param leadStatus
+	 */
+	public void createLeads(String type, String firstName, String lastName, String company, String designation, String leadSource, String industry, String annualrevenue, String noofemployees, String street, String postalCode, String country,
+			String description, String phone, String mobile, String email, String leadStatus) {
+		clickLeads();
+		clickOnCreateLeads();
+		selectFirstNameType(type);
+		enterFirstName(firstName);
+		enterLastName(lastName);
+		enterCompany(company);
+		enterDesignation(designation);
+		selectLeadSource(leadSource);
+		selectIndustry(industry);
+		enterAnnualrevenue(annualrevenue);
+		enterNoofemployees(noofemployees);
+		enterStreet(street);
+		enterPostalCode(postalCode);
+		enterCountry(country);
+		enterDescription(description);
+		enterPhone(phone);
+		enterMobile(mobile);
+		enterEmail(email);
+		selectLeadStatus(leadStatus);
+		selectAssignedTo();
+		clickSave();
+	}
 }
