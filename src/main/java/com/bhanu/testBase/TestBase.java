@@ -37,6 +37,30 @@ public class TestBase {
 		ReadDataFromExcelSheet readDataFromExcelSheet = new ReadDataFromExcelSheet();
 		return readDataFromExcelSheet.getExcelData(excellocation, sheetName);
 	}
+	
+	/**
+	 * This method will give excel data in 2D array based on sheet Name
+	 * 
+	 * @param excellocation
+	 * @param sheetName
+	 * @return
+	 */
+	public Object[][] getExcelData(String excelName, String sheetName, String testName) {
+		String excellocation = ResourceHelper.getResourcePath("/src/main/resources/testData/") + excelName;
+		ReadDataFromExcelSheet readDataFromExcelSheet = new ReadDataFromExcelSheet();
+		return readDataFromExcelSheet.getExcelDataBasedOnStartingPoint(excellocation, sheetName, testName);
+	}
+	
+    /**
+     * 
+     * @param data
+     * @param col
+     * @return
+     */
+	public Object[] dataParsing(String[][] data, int col){
+		ReadDataFromExcelSheet readDataFromExcelSheet = new ReadDataFromExcelSheet();
+		return readDataFromExcelSheet.parseData(data,col);
+	}
 
 	/**
 	 * This method will update result in excel sheet.
