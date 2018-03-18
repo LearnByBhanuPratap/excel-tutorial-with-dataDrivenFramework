@@ -1,5 +1,6 @@
 package com.bhanu.testScripts.leads;
 
+import org.testng.SkipException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -17,7 +18,7 @@ public class CreatesLeads extends TestBase {
 
 	@DataProvider(name = "testData")
 	public Object[][] testData() {
-		String[][] data = getExcelData("demo.xlsx", "leads");
+		String[][] data = getExcelData("demo.xlsx", "leadsData");
 		return data;
 	}
 
@@ -27,13 +28,17 @@ public class CreatesLeads extends TestBase {
 		login = new Login(driver);
 	}
 
-	@Test
+	@Test(dataProvider="testData")
 	public void testCreateLead(String userName, String password, String type, String firstName, String lastName, String company, String designation, String leadSource, String industry, String annualrevenue, String noofemployees, String street,
 			String postalCode, String country, String description, String phone, String mobile, String email, String leadStatus, String runMode) {
 		
-		login.loginToApplication(userName, password);
+		if(runMode.equalsIgnoreCase("n")){
+			throw new SkipException("Run mode for this set of data is marked N");
+		}
+		home = login.loginToApplication(userName, password);
 		Leads leads = home.navigateToLeads();
 		leads.createLeads(type, firstName, lastName, company, designation, leadSource, industry, annualrevenue, noofemployees, street, postalCode, country, description, phone, mobile, email, leadStatus);
+		home.logout();
 	}
 
 }

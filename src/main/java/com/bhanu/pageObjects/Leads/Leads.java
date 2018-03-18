@@ -13,7 +13,7 @@ import com.bhanu.testBase.DataSource;
 
 public class Leads {
 
-	public WebDriver driver;
+	WebDriver driver;
 	private WaitHelper waitHelper;
 
 	private static Logger log = LoggerHelper.getLogger(Leads.class);

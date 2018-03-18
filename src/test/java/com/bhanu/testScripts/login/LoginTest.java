@@ -18,7 +18,7 @@ public class LoginTest extends TestBase{
 	
 	@DataProvider(name="testData")
 	public Object[][] testData(){
-		String[][] data = getExcelData("demo.xlsx", "login");
+		String[][] data = getExcelData("demo.xlsx", "loginData");
 		return data;
 	}
 	
