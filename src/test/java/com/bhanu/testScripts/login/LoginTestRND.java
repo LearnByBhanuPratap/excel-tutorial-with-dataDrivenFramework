@@ -18,25 +18,24 @@ public class LoginTestRND extends TestBase{
 	
 	@DataProvider(name="testData")
 	public Object[] testData(){
-		Object[][] data = getExcelData("demo.xlsx", "login", "login");
+		Object[][] data = getExcelData("demo.xlsx", "masterData", "login");
 		return data;
 	}
 	
 	@BeforeClass
 	public void beforeClass(){
-		getApplicationURL(DataSource.OR.getProperty("url"));
-		login = new Login(driver);
+		//getApplicationURL(DataSource.OR.getProperty("url"));
+		//login = new Login(driver);
 	}
 
 	
 	@Test(dataProvider="testData")
-	public void loginTest1(String userName, String password, String runMode, String y){
+	public void loginTest1(String userName, String password, String runMode){
 		if(runMode.equalsIgnoreCase("n")){
 			throw new SkipException("Run mode for this set of data is marked N");
 		}
 		System.out.println(userName);
 		System.out.println(password);
-		System.out.println(y);
 	}
 
 }
