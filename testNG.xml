@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestNG">
+  <test name="TestNG">
+    <classes>
+      <class name="com.bhanu.testScripts.login.LoginTest"/>
+    </classes>
+  </test> <!-- Test -->
+  
+   <test name="CreatesLeads">
+    <classes>
+      <class name="com.bhanu.testScripts.leads.CreatesLeads"/>
+    </classes>
+  </test> <!-- Test -->
+  
+  
+</suite> <!-- Suite -->
