@@ -13,5 +13,11 @@
     </classes>
   </test> <!-- Test -->
   
+   <test name="JenkinTest">
+    <classes>
+      <class name="com.bhanu.testScripts.login.JenkinTest"/>
+    </classes>
+  </test> <!-- Test -->
+  
   
 </suite> <!-- Suite -->
