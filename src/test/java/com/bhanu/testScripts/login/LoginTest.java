@@ -36,6 +36,7 @@ public class LoginTest extends TestBase{
 		}
 		Home homePage = login.loginToApplication(userName, password);
 		homePage.logout();
+		System.out.println("implicite wait is: "+System.getProperty("implicitWait"));
 	}
 
 }
