@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>excel-tutorial-with-dataDrivenFramework</groupId>
@@ -29,7 +30,7 @@
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
-			<version>3.9.1</version>
+			<version>3.141.59</version>
 		</dependency>
 
 		<dependency>
@@ -43,9 +44,9 @@
 			<artifactId>xml-apis</artifactId>
 			<version>1.4.01</version>
 		</dependency>
-		</dependencies>
-		
-		<build>
+	</dependencies>
+
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -62,16 +63,14 @@
 				<version>2.19.1</version>
 				<configuration>
 					<systemPropertyVariables>
-							<userName>${DuserName}</userName>
-							<password>${Dpassword}</password>
-							<implicitWait>${DimplicitWait}</implicitWait>
-							<explicitWait>${DexplicitWait}</explicitWait>
+						<userName>${DuserName}</userName>
+						<password>${Dpassword}</password>
+						<implicitWait>${DimplicitWait}</implicitWait>
+						<explicitWait>${DexplicitWait}</explicitWait>
 					</systemPropertyVariables>
 					<!-- Old design where we can hard code TestNG suite in pom.xml -->
-					<!-- <suiteXmlFiles>
-						<suiteXmlFile>src/main/resources/testSuite/regression.xml</suiteXmlFile>
-						<suiteXmlFile>testNG.xml</suiteXmlFile>
-					</suiteXmlFiles> -->
+					<!-- <suiteXmlFiles> <suiteXmlFile>src/main/resources/testSuite/regression.xml</suiteXmlFile> 
+						<suiteXmlFile>testNG.xml</suiteXmlFile> </suiteXmlFiles> -->
 					<suiteXmlFiles>
 						<suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
 					</suiteXmlFiles>
