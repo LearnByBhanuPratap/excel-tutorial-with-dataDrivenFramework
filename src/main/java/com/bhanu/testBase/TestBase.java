@@ -97,6 +97,7 @@ public class TestBase {
 				System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "/src/main/resources/drivers/geckodriver");
 				this.driver = new FirefoxDriver();
 			} else if (browser.equalsIgnoreCase("chrome")) {
+				System.out.println(System.getProperty("os.name"));
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/resources/drivers/chromedriver");
 				this.driver = new ChromeDriver();
 			}
